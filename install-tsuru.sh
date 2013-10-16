@@ -64,6 +64,6 @@ EOF
 service beanstalkd start
 
 echo Configuring and starting Tsuru
-curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-single.conf
+curl -o /etc/tsuru/tsuru.conf http://scripts.cloud.tsuru.io/conf/tsuru-single.conf
 start tsuru-server-api
 start tsuru-server-collector
