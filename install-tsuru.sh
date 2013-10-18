@@ -34,8 +34,8 @@ restart docker
 
 echo Installing bare-template for Gandalf repositories
 mkdir -p /home/git/bare-template/hooks
-curl https://raw.github.com/globocom/tsuru/master/misc/git-hooks/post-receive -o $!/post-receive
-chmod +x $!
+curl https://raw.github.com/globocom/tsuru/master/misc/git-hooks/post-receive -o !$/post-receive
+chmod +x !$
 chown -R git:git /home/git/bare-templates
 
 echo Configuring and starting Gandalf
