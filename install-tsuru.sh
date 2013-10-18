@@ -68,5 +68,6 @@ echo Configuring and starting Tsuru
 curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
 rm /etc/default/tsuru-server.old
+start tsuru-ssh-agent
 start tsuru-server-api
 start tsuru-server-collector
