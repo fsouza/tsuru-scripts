@@ -37,7 +37,7 @@ hook_dir=/home/git/bare-template/hooks
 mkdir -p $hook_dir
 curl https://raw.github.com/globocom/tsuru/master/misc/git-hooks/post-receive -o ${hook_dir}/post-receive
 chmod +x ${hook_dir}/post-receive
-chown -R git:git /home/git/bare-templates
+chown -R git:git /home/git/bare-template
 
 echo Configuring and starting Gandalf
 cat > /etc/gandalf.conf <<EOF
