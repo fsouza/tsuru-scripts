@@ -50,10 +50,10 @@ host: localhost
 bind: localhost:8000
 uid: git
 EOF
-start gandalf-server
+restart gandalf-server
 
 echo Starting git-daemon
-start git-daemon
+restart git-daemon
 
 echo Configuring and starting beanstalkd
 cat > /etc/default/beanstalkd <<EOF
