@@ -59,7 +59,7 @@ echo Configuring and starting beanstalkd
 cat > /etc/default/beanstalkd <<EOF
 BEANSTALKD_LISTEN_ADDR=127.0.0.1
 BEANSTALKD_LISTEN_PORT=11300
-DAEMON_OPTS="-l $BEANSTALKD_LISTEN_ADDR -p $BEANSTALKD_LISTEN_PORT -b /var/lib/beanstalkd"
+DAEMON_OPTS="-l \$BEANSTALKD_LISTEN_ADDR -p \$BEANSTALKD_LISTEN_PORT -b /var/lib/beanstalkd"
 START=yes
 EOF
 service beanstalkd start
