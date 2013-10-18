@@ -25,7 +25,7 @@ apt-get install mongodb-10gen -qqy
 
 echo Installing remaining packages
 apt-get update
-apt-get install lxc-docker tsuru-server tsuru-docker-ssh-agent beanstalkd redis-server node-hipache gandalf-server -qqy
+apt-get install lxc-docker tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
 echo Configuring and starting Docker
 sed -i.old -e 's;/usr/bin/docker -d;/usr/bin/docker -H tcp://127.0.0.1:4243 -d;' /etc/init/docker.conf
@@ -65,5 +65,7 @@ service beanstalkd start
 
 echo Configuring and starting Tsuru
 curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-single.conf
+sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
+rm /etc/default/tsuru-server.old
 start tsuru-server-api
 start tsuru-server-collector
