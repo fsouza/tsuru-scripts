@@ -66,8 +66,10 @@ service beanstalkd start
 
 echo Configuring and starting Tsuru
 curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
+host_ip=`ip addr show eth0 scope global | grep inet | head -1 | awk '{print $2}' | awk -F'/' '{print $1}'`
+sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
-rm /etc/default/tsuru-server.old
+rm /etc/default/tsuru-server.old /etc/tsuru/tsuru.conf.old
 start tsuru-ssh-agent
 start tsuru-server-api
 start tsuru-server-collector
