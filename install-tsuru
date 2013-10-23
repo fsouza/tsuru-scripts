@@ -30,7 +30,8 @@ apt-get install lxc-docker tsuru-server beanstalkd redis-server node-hipache gan
 echo Configuring and starting Docker
 sed -i.old -e 's;/usr/bin/docker -d;/usr/bin/docker -H tcp://127.0.0.1:4243 -d;' /etc/init/docker.conf
 rm /etc/init/docker.conf.old
-restart docker
+stop docker
+start docker
 
 echo Installing bare-template for Gandalf repositories
 hook_dir=/home/git/bare-template/hooks
